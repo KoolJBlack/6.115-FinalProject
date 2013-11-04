@@ -1,0 +1,2052 @@
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"rx_int_Amulet.c"
+  14              		.section	.debug_abbrev,"",%progbits
+  15              	.Ldebug_abbrev0:
+  16              		.section	.debug_info,"",%progbits
+  17              	.Ldebug_info0:
+  18              		.section	.debug_line,"",%progbits
+  19              	.Ldebug_line0:
+  20 0000 60010000 		.text
+  20      02006500 
+  20      00000201 
+  20      FB0E0D00 
+  20      01010101 
+  21              	.Ltext0:
+  22              		.cfi_sections	.debug_frame
+  23              		.section	.text.rx_int_Amulet_Start,"ax",%progbits
+  24              		.align	2
+  25              		.global	rx_int_Amulet_Start
+  26              		.thumb
+  27              		.thumb_func
+  28              		.type	rx_int_Amulet_Start, %function
+  29              	rx_int_Amulet_Start:
+  30              	.LFB0:
+  31              		.file 1 ".\\Generated_Source\\PSoC5\\rx_int_Amulet.c"
+   1:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * File Name: rx_int_Amulet.c  
+   3:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Version 1.60
+   4:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+   5:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *  Description:
+   6:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   API for controlling the state of an interrupt.
+   7:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+   8:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+   9:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *  Note:
+  10:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  11:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************/
+  17:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  18:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  19:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #include <CYDEVICE.H>
+  20:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #include <CYDEVICE_TRM.H>
+  21:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #include <CYLIB.H>
+  22:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #include <rx_int_Amulet.H>
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 2
+
+
+  23:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  24:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  25:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+  26:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *  Place your includes, defines and code here 
+  27:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************/
+  28:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /* `#START rx_int_Amulet_intc` */
+  29:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  30:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /* `#END` */
+  31:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  32:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #ifndef CYINT_IRQ_BASE
+  33:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #define CYINT_IRQ_BASE	16
+  34:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #endif
+  35:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #ifndef CYINT_VECT_TABLE
+  36:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  37:.\Generated_Source\PSoC5/rx_int_Amulet.c **** #endif
+  38:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  39:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /* Declared in startup, used to set unused interrupts to. */
+  40:.\Generated_Source\PSoC5/rx_int_Amulet.c **** CY_ISR_PROTO(IntDefaultHandler);
+  41:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  42:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+  43:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_Start
+  44:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+  45:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+  46:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *  Set up the interrupt and enable it.
+  47:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  48:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:  
+  49:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+  50:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  51:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  52:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+  53:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+  54:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  55:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+  56:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_Start(void)
+  57:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+  32              		.loc 1 57 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36 0000 80B5     		push	{r7, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39 0002 00AF     		add	r7, sp, #0
+  40              		.cfi_offset 14, -4
+  41              		.cfi_offset 7, -8
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_register 7
+  58:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* For all we know the interrupt is active. */
+  59:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_Disable();
+  44              		.loc 1 59 0
+  45 0004 FFF7FEFF 		bl	rx_int_Amulet_Disable
+  60:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  61:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Set the ISR to point to the rx_int_Amulet Interrupt. */
+  62:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_SetVector(rx_int_Amulet_Interrupt);
+  46              		.loc 1 62 0
+  47 0008 40F20000 		movw	r0, #:lower16:rx_int_Amulet_Interrupt
+  48 000c C0F20000 		movt	r0, #:upper16:rx_int_Amulet_Interrupt
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 3
+
+
+  49 0010 FFF7FEFF 		bl	rx_int_Amulet_SetVector
+  63:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  64:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Set the priority. */
+  65:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_SetPriority(rx_int_Amulet_INTC_PRIOR_NUMBER);
+  50              		.loc 1 65 0
+  51 0014 4FF00700 		mov	r0, #7
+  52 0018 FFF7FEFF 		bl	rx_int_Amulet_SetPriority
+  66:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  67:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Enable it. */
+  68:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_Enable();
+  53              		.loc 1 68 0
+  54 001c FFF7FEFF 		bl	rx_int_Amulet_Enable
+  69:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+  55              		.loc 1 69 0
+  56 0020 80BD     		pop	{r7, pc}
+  57              		.cfi_endproc
+  58              	.LFE0:
+  59              		.size	rx_int_Amulet_Start, .-rx_int_Amulet_Start
+  60 0022 00BF     		.section	.text.rx_int_Amulet_StartEx,"ax",%progbits
+  61              		.align	2
+  62              		.global	rx_int_Amulet_StartEx
+  63              		.thumb
+  64              		.thumb_func
+  65              		.type	rx_int_Amulet_StartEx, %function
+  66              	rx_int_Amulet_StartEx:
+  67              	.LFB1:
+  70:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  71:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+  72:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_StartEx
+  73:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+  74:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+  75:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *  Set up the interrupt and enable it.
+  76:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  77:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:  
+  78:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  79:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  80:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  81:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+  82:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+  83:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+  84:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+  85:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_StartEx(cyisraddress address)
+  86:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+  68              		.loc 1 86 0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 8
+  71              		@ frame_needed = 1, uses_anonymous_args = 0
+  72 0000 80B5     		push	{r7, lr}
+  73              	.LCFI2:
+  74              		.cfi_def_cfa_offset 8
+  75 0002 82B0     		sub	sp, sp, #8
+  76              	.LCFI3:
+  77              		.cfi_def_cfa_offset 16
+  78 0004 00AF     		add	r7, sp, #0
+  79              		.cfi_offset 14, -4
+  80              		.cfi_offset 7, -8
+  81              	.LCFI4:
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 4
+
+
+  82              		.cfi_def_cfa_register 7
+  83 0006 7860     		str	r0, [r7, #4]
+  87:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* For all we know the interrupt is active. */
+  88:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_Disable();
+  84              		.loc 1 88 0
+  85 0008 FFF7FEFF 		bl	rx_int_Amulet_Disable
+  89:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  90:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Set the ISR to point to the rx_int_Amulet Interrupt. */
+  91:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_SetVector(address);
+  86              		.loc 1 91 0
+  87 000c 7868     		ldr	r0, [r7, #4]
+  88 000e FFF7FEFF 		bl	rx_int_Amulet_SetVector
+  92:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  93:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Set the priority. */
+  94:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_SetPriority(rx_int_Amulet_INTC_PRIOR_NUMBER);
+  89              		.loc 1 94 0
+  90 0012 4FF00700 		mov	r0, #7
+  91 0016 FFF7FEFF 		bl	rx_int_Amulet_SetPriority
+  95:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+  96:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Enable it. */
+  97:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_Enable();
+  92              		.loc 1 97 0
+  93 001a FFF7FEFF 		bl	rx_int_Amulet_Enable
+  98:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+  94              		.loc 1 98 0
+  95 001e 07F10807 		add	r7, r7, #8
+  96 0022 BD46     		mov	sp, r7
+  97 0024 80BD     		pop	{r7, pc}
+  98              		.cfi_endproc
+  99              	.LFE1:
+ 100              		.size	rx_int_Amulet_StartEx, .-rx_int_Amulet_StartEx
+ 101 0026 00BF     		.section	.text.rx_int_Amulet_Stop,"ax",%progbits
+ 102              		.align	2
+ 103              		.global	rx_int_Amulet_Stop
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.type	rx_int_Amulet_Stop, %function
+ 107              	rx_int_Amulet_Stop:
+ 108              	.LFB2:
+  99:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 100:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 101:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_Stop
+ 102:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 103:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 104:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Disables and removes the interrupt.
+ 105:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 106:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:  
+ 107:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 108:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 109:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 110:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 111:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 112:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 113:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_Stop(void) 
+ 114:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 109              		.loc 1 114 0
+ 110              		.cfi_startproc
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 5
+
+
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 1, uses_anonymous_args = 0
+ 113 0000 80B5     		push	{r7, lr}
+ 114              	.LCFI5:
+ 115              		.cfi_def_cfa_offset 8
+ 116 0002 00AF     		add	r7, sp, #0
+ 117              		.cfi_offset 14, -4
+ 118              		.cfi_offset 7, -8
+ 119              	.LCFI6:
+ 120              		.cfi_def_cfa_register 7
+ 115:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Disable this interrupt. */
+ 116:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_Disable();
+ 121              		.loc 1 116 0
+ 122 0004 FFF7FEFF 		bl	rx_int_Amulet_Disable
+ 117:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 118:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Set the ISR to point to the passive one. */
+ 119:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     rx_int_Amulet_SetVector(IntDefaultHandler);
+ 123              		.loc 1 119 0
+ 124 0008 40F20000 		movw	r0, #:lower16:IntDefaultHandler
+ 125 000c C0F20000 		movt	r0, #:upper16:IntDefaultHandler
+ 126 0010 FFF7FEFF 		bl	rx_int_Amulet_SetVector
+ 120:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 127              		.loc 1 120 0
+ 128 0014 80BD     		pop	{r7, pc}
+ 129              		.cfi_endproc
+ 130              	.LFE2:
+ 131              		.size	rx_int_Amulet_Stop, .-rx_int_Amulet_Stop
+ 132 0016 00BF     		.section	.text.rx_int_Amulet_Interrupt,"ax",%progbits
+ 133              		.align	2
+ 134              		.global	rx_int_Amulet_Interrupt
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	rx_int_Amulet_Interrupt, %function
+ 138              	rx_int_Amulet_Interrupt:
+ 139              	.LFB3:
+ 121:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 122:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 123:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_Interrupt
+ 124:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 125:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 126:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   The default Interrupt Service Routine for rx_int_Amulet.
+ 127:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 128:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Add custom code between the coments to keep the next version of this file
+ 129:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   from over writting your code.
+ 130:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 131:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 132:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 133:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:  
+ 134:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 135:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 136:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 137:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 138:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 139:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 140:.\Generated_Source\PSoC5/rx_int_Amulet.c **** CY_ISR(rx_int_Amulet_Interrupt)
+ 141:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 140              		.loc 1 141 0
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 6
+
+
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 8
+ 143              		@ frame_needed = 1, uses_anonymous_args = 0
+ 144 0000 80B5     		push	{r7, lr}
+ 145              	.LCFI7:
+ 146              		.cfi_def_cfa_offset 8
+ 147 0002 82B0     		sub	sp, sp, #8
+ 148              	.LCFI8:
+ 149              		.cfi_def_cfa_offset 16
+ 150 0004 00AF     		add	r7, sp, #0
+ 151              		.cfi_offset 14, -4
+ 152              		.cfi_offset 7, -8
+ 153              	.LCFI9:
+ 154              		.cfi_def_cfa_register 7
+ 142:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /*  Place your Interrupt code here. */
+ 143:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* `#START rx_int_Amulet_Interrupt` */
+ 144:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     uint8 input = UART_Amulet_ReadRxData();
+ 155              		.loc 1 144 0
+ 156 0006 FFF7FEFF 		bl	UART_Amulet_ReadRxData
+ 157 000a 0346     		mov	r3, r0
+ 158 000c FB71     		strb	r3, [r7, #7]
+ 145:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     LCD_PutChar(input);     // Print received character to LCD
+ 159              		.loc 1 145 0
+ 160 000e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 161 0010 1846     		mov	r0, r3
+ 162 0012 FFF7FEFF 		bl	LCD_PutChar
+ 146:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     ProcessAmulet(input);
+ 163              		.loc 1 146 0
+ 164 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 165 0018 1846     		mov	r0, r3
+ 166 001a FFF7FEFF 		bl	ProcessAmulet
+ 147:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* `#END` */
+ 148:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 167              		.loc 1 148 0
+ 168 001e 07F10807 		add	r7, r7, #8
+ 169 0022 BD46     		mov	sp, r7
+ 170 0024 80BD     		pop	{r7, pc}
+ 171              		.cfi_endproc
+ 172              	.LFE3:
+ 173              		.size	rx_int_Amulet_Interrupt, .-rx_int_Amulet_Interrupt
+ 174 0026 00BF     		.section	.text.rx_int_Amulet_SetVector,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	rx_int_Amulet_SetVector
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.type	rx_int_Amulet_SetVector, %function
+ 180              	rx_int_Amulet_SetVector:
+ 181              	.LFB4:
+ 149:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 150:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 151:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_SetVector
+ 152:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 153:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 154:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Change the ISR vector for the Interrupt. Note calling rx_int_Amulet_Start
+ 155:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   will override any effect this method would have had. To set the vector before
+ 156:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   the component has been started use rx_int_Amulet_StartEx instead.
+ 157:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 7
+
+
+ 158:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 159:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 160:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 161:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 162:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 163:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 164:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 165:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 166:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 167:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 168:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_SetVector(cyisraddress address) 
+ 169:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 182              		.loc 1 169 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 16
+ 185              		@ frame_needed = 1, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+ 187 0000 80B4     		push	{r7}
+ 188              	.LCFI10:
+ 189              		.cfi_def_cfa_offset 4
+ 190 0002 85B0     		sub	sp, sp, #20
+ 191              	.LCFI11:
+ 192              		.cfi_def_cfa_offset 24
+ 193 0004 00AF     		add	r7, sp, #0
+ 194              		.cfi_offset 7, -4
+ 195              	.LCFI12:
+ 196              		.cfi_def_cfa_register 7
+ 197 0006 7860     		str	r0, [r7, #4]
+ 170:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     cyisraddress * ramVectorTable;
+ 171:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 172:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 198              		.loc 1 172 0
+ 199 0008 4EF60853 		movw	r3, #:lower16:-536810232
+ 200 000c CEF20003 		movt	r3, #:upper16:-536810232
+ 201 0010 1B68     		ldr	r3, [r3, #0]
+ 202 0012 FB60     		str	r3, [r7, #12]
+ 173:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 174:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     ramVectorTable[CYINT_IRQ_BASE + rx_int_Amulet__INTC_NUMBER] = address;
+ 203              		.loc 1 174 0
+ 204 0014 FB68     		ldr	r3, [r7, #12]
+ 205 0016 03F15003 		add	r3, r3, #80
+ 206 001a 7A68     		ldr	r2, [r7, #4]
+ 207 001c 1A60     		str	r2, [r3, #0]
+ 175:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 208              		.loc 1 175 0
+ 209 001e 07F11407 		add	r7, r7, #20
+ 210 0022 BD46     		mov	sp, r7
+ 211 0024 80BC     		pop	{r7}
+ 212 0026 7047     		bx	lr
+ 213              		.cfi_endproc
+ 214              	.LFE4:
+ 215              		.size	rx_int_Amulet_SetVector, .-rx_int_Amulet_SetVector
+ 216              		.section	.text.rx_int_Amulet_GetVector,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	rx_int_Amulet_GetVector
+ 219              		.thumb
+ 220              		.thumb_func
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 8
+
+
+ 221              		.type	rx_int_Amulet_GetVector, %function
+ 222              	rx_int_Amulet_GetVector:
+ 223              	.LFB5:
+ 176:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 177:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 178:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_GetVector
+ 179:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 180:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 181:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 182:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 183:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 184:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 185:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 186:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 187:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 188:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 189:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Address of the ISR in the interrupt vector table.
+ 190:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 191:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 192:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 193:.\Generated_Source\PSoC5/rx_int_Amulet.c **** cyisraddress rx_int_Amulet_GetVector(void) 
+ 194:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 224              		.loc 1 194 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 8
+ 227              		@ frame_needed = 1, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 229 0000 80B4     		push	{r7}
+ 230              	.LCFI13:
+ 231              		.cfi_def_cfa_offset 4
+ 232 0002 83B0     		sub	sp, sp, #12
+ 233              	.LCFI14:
+ 234              		.cfi_def_cfa_offset 16
+ 235 0004 00AF     		add	r7, sp, #0
+ 236              		.cfi_offset 7, -4
+ 237              	.LCFI15:
+ 238              		.cfi_def_cfa_register 7
+ 195:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     cyisraddress * ramVectorTable;
+ 196:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 197:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 239              		.loc 1 197 0
+ 240 0006 4EF60853 		movw	r3, #:lower16:-536810232
+ 241 000a CEF20003 		movt	r3, #:upper16:-536810232
+ 242 000e 1B68     		ldr	r3, [r3, #0]
+ 243 0010 7B60     		str	r3, [r7, #4]
+ 198:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 199:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     return ramVectorTable[CYINT_IRQ_BASE + rx_int_Amulet__INTC_NUMBER];
+ 244              		.loc 1 199 0
+ 245 0012 7B68     		ldr	r3, [r7, #4]
+ 246 0014 03F15003 		add	r3, r3, #80
+ 247 0018 1B68     		ldr	r3, [r3, #0]
+ 200:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 248              		.loc 1 200 0
+ 249 001a 1846     		mov	r0, r3
+ 250 001c 07F10C07 		add	r7, r7, #12
+ 251 0020 BD46     		mov	sp, r7
+ 252 0022 80BC     		pop	{r7}
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 9
+
+
+ 253 0024 7047     		bx	lr
+ 254              		.cfi_endproc
+ 255              	.LFE5:
+ 256              		.size	rx_int_Amulet_GetVector, .-rx_int_Amulet_GetVector
+ 257 0026 00BF     		.section	.text.rx_int_Amulet_SetPriority,"ax",%progbits
+ 258              		.align	2
+ 259              		.global	rx_int_Amulet_SetPriority
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	rx_int_Amulet_SetPriority, %function
+ 263              	rx_int_Amulet_SetPriority:
+ 264              	.LFB6:
+ 201:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 202:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 203:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_SetPriority
+ 204:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 205:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 206:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Sets the Priority of the Interrupt. Note calling rx_int_Amulet_Start
+ 207:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   or rx_int_Amulet_StartEx will override any effect this method would have had. 
+ 208:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *	This method should only be called after rx_int_Amulet_Start or 
+ 209:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *	rx_int_Amulet_StartEx has been called. To set the initial
+ 210:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *	priority for the component use the cydwr file in the tool.
+ 211:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 212:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 213:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 214:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   priority: Priority of the interrupt. 0 - 7, 0 being the highest.
+ 215:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 216:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 217:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 218:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 219:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 220:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 221:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 222:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_SetPriority(uint8 priority) 
+ 223:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 265              		.loc 1 223 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 8
+ 268              		@ frame_needed = 1, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 270 0000 80B4     		push	{r7}
+ 271              	.LCFI16:
+ 272              		.cfi_def_cfa_offset 4
+ 273 0002 83B0     		sub	sp, sp, #12
+ 274              	.LCFI17:
+ 275              		.cfi_def_cfa_offset 16
+ 276 0004 00AF     		add	r7, sp, #0
+ 277              		.cfi_offset 7, -4
+ 278              	.LCFI18:
+ 279              		.cfi_def_cfa_register 7
+ 280 0006 0346     		mov	r3, r0
+ 281 0008 FB71     		strb	r3, [r7, #7]
+ 224:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     *rx_int_Amulet_INTC_PRIOR = priority << 5;
+ 282              		.loc 1 224 0
+ 283 000a 4EF20443 		movw	r3, #:lower16:-536812540
+ 284 000e CEF20003 		movt	r3, #:upper16:-536812540
+ 285 0012 FA79     		ldrb	r2, [r7, #7]
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 10
+
+
+ 286 0014 4FEA4212 		lsl	r2, r2, #5
+ 287 0018 D2B2     		uxtb	r2, r2
+ 288 001a 1A70     		strb	r2, [r3, #0]
+ 225:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 289              		.loc 1 225 0
+ 290 001c 07F10C07 		add	r7, r7, #12
+ 291 0020 BD46     		mov	sp, r7
+ 292 0022 80BC     		pop	{r7}
+ 293 0024 7047     		bx	lr
+ 294              		.cfi_endproc
+ 295              	.LFE6:
+ 296              		.size	rx_int_Amulet_SetPriority, .-rx_int_Amulet_SetPriority
+ 297 0026 00BF     		.section	.text.rx_int_Amulet_GetPriority,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	rx_int_Amulet_GetPriority
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	rx_int_Amulet_GetPriority, %function
+ 303              	rx_int_Amulet_GetPriority:
+ 304              	.LFB7:
+ 226:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 227:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 228:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_GetPriority
+ 229:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 230:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 231:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Gets the Priority of the Interrupt.
+ 232:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 233:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 234:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 235:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 236:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 237:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 238:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 239:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Priority of the interrupt. 0 - 7, 0 being the highest.
+ 240:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 241:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 242:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 243:.\Generated_Source\PSoC5/rx_int_Amulet.c **** uint8 rx_int_Amulet_GetPriority(void) 
+ 244:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 305              		.loc 1 244 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 8
+ 308              		@ frame_needed = 1, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310 0000 80B4     		push	{r7}
+ 311              	.LCFI19:
+ 312              		.cfi_def_cfa_offset 4
+ 313 0002 83B0     		sub	sp, sp, #12
+ 314              	.LCFI20:
+ 315              		.cfi_def_cfa_offset 16
+ 316 0004 00AF     		add	r7, sp, #0
+ 317              		.cfi_offset 7, -4
+ 318              	.LCFI21:
+ 319              		.cfi_def_cfa_register 7
+ 245:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     uint8 priority;
+ 246:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 247:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 11
+
+
+ 248:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     priority = *rx_int_Amulet_INTC_PRIOR >> 5;
+ 320              		.loc 1 248 0
+ 321 0006 4EF20443 		movw	r3, #:lower16:-536812540
+ 322 000a CEF20003 		movt	r3, #:upper16:-536812540
+ 323 000e 1B78     		ldrb	r3, [r3, #0]
+ 324 0010 DBB2     		uxtb	r3, r3
+ 325 0012 4FEA5313 		lsr	r3, r3, #5
+ 326 0016 FB71     		strb	r3, [r7, #7]
+ 249:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 250:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     return priority;
+ 327              		.loc 1 250 0
+ 328 0018 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 251:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 329              		.loc 1 251 0
+ 330 001a 1846     		mov	r0, r3
+ 331 001c 07F10C07 		add	r7, r7, #12
+ 332 0020 BD46     		mov	sp, r7
+ 333 0022 80BC     		pop	{r7}
+ 334 0024 7047     		bx	lr
+ 335              		.cfi_endproc
+ 336              	.LFE7:
+ 337              		.size	rx_int_Amulet_GetPriority, .-rx_int_Amulet_GetPriority
+ 338 0026 00BF     		.section	.text.rx_int_Amulet_Enable,"ax",%progbits
+ 339              		.align	2
+ 340              		.global	rx_int_Amulet_Enable
+ 341              		.thumb
+ 342              		.thumb_func
+ 343              		.type	rx_int_Amulet_Enable, %function
+ 344              	rx_int_Amulet_Enable:
+ 345              	.LFB8:
+ 252:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 253:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 254:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_Enable
+ 255:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 256:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 257:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Enables the interrupt.
+ 258:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 259:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 260:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 261:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 262:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 263:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 264:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 265:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 266:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 267:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 268:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 269:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_Enable(void) 
+ 270:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 346              		.loc 1 270 0
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 1, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351 0000 80B4     		push	{r7}
+ 352              	.LCFI22:
+ 353              		.cfi_def_cfa_offset 4
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 12
+
+
+ 354 0002 00AF     		add	r7, sp, #0
+ 355              		.cfi_offset 7, -4
+ 356              	.LCFI23:
+ 357              		.cfi_def_cfa_register 7
+ 271:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Enable the general interrupt. */
+ 272:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     *rx_int_Amulet_INTC_SET_EN = rx_int_Amulet__INTC_MASK;
+ 358              		.loc 1 272 0
+ 359 0004 4EF20013 		movw	r3, #:lower16:-536813312
+ 360 0008 CEF20003 		movt	r3, #:upper16:-536813312
+ 361 000c 4FF01002 		mov	r2, #16
+ 362 0010 1A60     		str	r2, [r3, #0]
+ 273:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 363              		.loc 1 273 0
+ 364 0012 BD46     		mov	sp, r7
+ 365 0014 80BC     		pop	{r7}
+ 366 0016 7047     		bx	lr
+ 367              		.cfi_endproc
+ 368              	.LFE8:
+ 369              		.size	rx_int_Amulet_Enable, .-rx_int_Amulet_Enable
+ 370              		.section	.text.rx_int_Amulet_GetState,"ax",%progbits
+ 371              		.align	2
+ 372              		.global	rx_int_Amulet_GetState
+ 373              		.thumb
+ 374              		.thumb_func
+ 375              		.type	rx_int_Amulet_GetState, %function
+ 376              	rx_int_Amulet_GetState:
+ 377              	.LFB9:
+ 274:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 275:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 276:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_GetState
+ 277:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 278:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 279:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 280:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 281:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 282:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 283:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 284:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 285:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 286:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 287:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   1 if enabled, 0 if disabled.
+ 288:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 289:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 290:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 291:.\Generated_Source\PSoC5/rx_int_Amulet.c **** uint8 rx_int_Amulet_GetState(void) 
+ 292:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 378              		.loc 1 292 0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 1, uses_anonymous_args = 0
+ 382              		@ link register save eliminated.
+ 383 0000 80B4     		push	{r7}
+ 384              	.LCFI24:
+ 385              		.cfi_def_cfa_offset 4
+ 386 0002 00AF     		add	r7, sp, #0
+ 387              		.cfi_offset 7, -4
+ 388              	.LCFI25:
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 13
+
+
+ 389              		.cfi_def_cfa_register 7
+ 293:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Get the state of the general interrupt. */
+ 294:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     return (*rx_int_Amulet_INTC_SET_EN & rx_int_Amulet__INTC_MASK) ? 1:0;
+ 390              		.loc 1 294 0
+ 391 0004 4EF20013 		movw	r3, #:lower16:-536813312
+ 392 0008 CEF20003 		movt	r3, #:upper16:-536813312
+ 393 000c 1B68     		ldr	r3, [r3, #0]
+ 394 000e 03F01003 		and	r3, r3, #16
+ 395 0012 002B     		cmp	r3, #0
+ 396 0014 0CBF     		ite	eq
+ 397 0016 0023     		moveq	r3, #0
+ 398 0018 0123     		movne	r3, #1
+ 295:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 399              		.loc 1 295 0
+ 400 001a 1846     		mov	r0, r3
+ 401 001c BD46     		mov	sp, r7
+ 402 001e 80BC     		pop	{r7}
+ 403 0020 7047     		bx	lr
+ 404              		.cfi_endproc
+ 405              	.LFE9:
+ 406              		.size	rx_int_Amulet_GetState, .-rx_int_Amulet_GetState
+ 407 0022 00BF     		.section	.text.rx_int_Amulet_Disable,"ax",%progbits
+ 408              		.align	2
+ 409              		.global	rx_int_Amulet_Disable
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.type	rx_int_Amulet_Disable, %function
+ 413              	rx_int_Amulet_Disable:
+ 414              	.LFB10:
+ 296:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 297:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 298:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_Disable
+ 299:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 300:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 301:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Disables the Interrupt.
+ 302:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 303:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 304:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 305:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 306:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 307:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 308:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 309:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 310:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 311:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 312:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 313:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_Disable(void) 
+ 314:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 415              		.loc 1 314 0
+ 416              		.cfi_startproc
+ 417              		@ args = 0, pretend = 0, frame = 0
+ 418              		@ frame_needed = 1, uses_anonymous_args = 0
+ 419              		@ link register save eliminated.
+ 420 0000 80B4     		push	{r7}
+ 421              	.LCFI26:
+ 422              		.cfi_def_cfa_offset 4
+ 423 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 14
+
+
+ 424              		.cfi_offset 7, -4
+ 425              	.LCFI27:
+ 426              		.cfi_def_cfa_register 7
+ 315:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     /* Disable the general interrupt. */
+ 316:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     *rx_int_Amulet_INTC_CLR_EN = rx_int_Amulet__INTC_MASK;
+ 427              		.loc 1 316 0
+ 428 0004 4EF28013 		movw	r3, #:lower16:-536813184
+ 429 0008 CEF20003 		movt	r3, #:upper16:-536813184
+ 430 000c 4FF01002 		mov	r2, #16
+ 431 0010 1A60     		str	r2, [r3, #0]
+ 317:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 432              		.loc 1 317 0
+ 433 0012 BD46     		mov	sp, r7
+ 434 0014 80BC     		pop	{r7}
+ 435 0016 7047     		bx	lr
+ 436              		.cfi_endproc
+ 437              	.LFE10:
+ 438              		.size	rx_int_Amulet_Disable, .-rx_int_Amulet_Disable
+ 439              		.section	.text.rx_int_Amulet_SetPending,"ax",%progbits
+ 440              		.align	2
+ 441              		.global	rx_int_Amulet_SetPending
+ 442              		.thumb
+ 443              		.thumb_func
+ 444              		.type	rx_int_Amulet_SetPending, %function
+ 445              	rx_int_Amulet_SetPending:
+ 446              	.LFB11:
+ 318:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 319:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 320:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_SetPending
+ 321:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 322:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 323:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 324:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   generating the interrupt.
+ 325:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 326:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 327:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 328:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 329:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 330:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 331:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 332:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 333:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 334:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 335:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 336:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_SetPending(void) 
+ 337:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 447              		.loc 1 337 0
+ 448              		.cfi_startproc
+ 449              		@ args = 0, pretend = 0, frame = 0
+ 450              		@ frame_needed = 1, uses_anonymous_args = 0
+ 451              		@ link register save eliminated.
+ 452 0000 80B4     		push	{r7}
+ 453              	.LCFI28:
+ 454              		.cfi_def_cfa_offset 4
+ 455 0002 00AF     		add	r7, sp, #0
+ 456              		.cfi_offset 7, -4
+ 457              	.LCFI29:
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 15
+
+
+ 458              		.cfi_def_cfa_register 7
+ 338:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     *rx_int_Amulet_INTC_SET_PD = rx_int_Amulet__INTC_MASK;
+ 459              		.loc 1 338 0
+ 460 0004 4EF20023 		movw	r3, #:lower16:-536813056
+ 461 0008 CEF20003 		movt	r3, #:upper16:-536813056
+ 462 000c 4FF01002 		mov	r2, #16
+ 463 0010 1A60     		str	r2, [r3, #0]
+ 339:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 464              		.loc 1 339 0
+ 465 0012 BD46     		mov	sp, r7
+ 466 0014 80BC     		pop	{r7}
+ 467 0016 7047     		bx	lr
+ 468              		.cfi_endproc
+ 469              	.LFE11:
+ 470              		.size	rx_int_Amulet_SetPending, .-rx_int_Amulet_SetPending
+ 471              		.section	.text.rx_int_Amulet_ClearPending,"ax",%progbits
+ 472              		.align	2
+ 473              		.global	rx_int_Amulet_ClearPending
+ 474              		.thumb
+ 475              		.thumb_func
+ 476              		.type	rx_int_Amulet_ClearPending, %function
+ 477              	rx_int_Amulet_ClearPending:
+ 478              	.LFB12:
+ 340:.\Generated_Source\PSoC5/rx_int_Amulet.c **** 
+ 341:.\Generated_Source\PSoC5/rx_int_Amulet.c **** /*******************************************************************************
+ 342:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Function Name: rx_int_Amulet_ClearPending
+ 343:.\Generated_Source\PSoC5/rx_int_Amulet.c **** ********************************************************************************
+ 344:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Summary:
+ 345:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   Clears a pending interrupt.
+ 346:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 347:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Parameters:
+ 348:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 349:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 350:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 351:.\Generated_Source\PSoC5/rx_int_Amulet.c **** * Return:
+ 352:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *   void.
+ 353:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 354:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *
+ 355:.\Generated_Source\PSoC5/rx_int_Amulet.c **** *******************************************************************************/
+ 356:.\Generated_Source\PSoC5/rx_int_Amulet.c **** void rx_int_Amulet_ClearPending(void) 
+ 357:.\Generated_Source\PSoC5/rx_int_Amulet.c **** {
+ 479              		.loc 1 357 0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 0
+ 482              		@ frame_needed = 1, uses_anonymous_args = 0
+ 483              		@ link register save eliminated.
+ 484 0000 80B4     		push	{r7}
+ 485              	.LCFI30:
+ 486              		.cfi_def_cfa_offset 4
+ 487 0002 00AF     		add	r7, sp, #0
+ 488              		.cfi_offset 7, -4
+ 489              	.LCFI31:
+ 490              		.cfi_def_cfa_register 7
+ 358:.\Generated_Source\PSoC5/rx_int_Amulet.c ****     *rx_int_Amulet_INTC_CLR_PD = rx_int_Amulet__INTC_MASK;
+ 491              		.loc 1 358 0
+ 492 0004 4EF28023 		movw	r3, #:lower16:-536812928
+ 493 0008 CEF20003 		movt	r3, #:upper16:-536812928
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 16
+
+
+ 494 000c 4FF01002 		mov	r2, #16
+ 495 0010 1A60     		str	r2, [r3, #0]
+ 359:.\Generated_Source\PSoC5/rx_int_Amulet.c **** }
+ 496              		.loc 1 359 0
+ 497 0012 BD46     		mov	sp, r7
+ 498 0014 80BC     		pop	{r7}
+ 499 0016 7047     		bx	lr
+ 500              		.cfi_endproc
+ 501              	.LFE12:
+ 502              		.size	rx_int_Amulet_ClearPending, .-rx_int_Amulet_ClearPending
+ 503              		.text
+ 504              	.Letext0:
+ 505              		.section	.debug_loc,"",%progbits
+ 506              	.Ldebug_loc0:
+ 507              	.LLST0:
+ 508 0000 00000000 		.4byte	.LFB0
+ 509 0004 02000000 		.4byte	.LCFI0
+ 510 0008 0100     		.2byte	0x1
+ 511 000a 5D       		.byte	0x5d
+ 512 000b 02000000 		.4byte	.LCFI0
+ 513 000f 04000000 		.4byte	.LCFI1
+ 514 0013 0200     		.2byte	0x2
+ 515 0015 7D       		.byte	0x7d
+ 516 0016 08       		.sleb128 8
+ 517 0017 04000000 		.4byte	.LCFI1
+ 518 001b 22000000 		.4byte	.LFE0
+ 519 001f 0200     		.2byte	0x2
+ 520 0021 77       		.byte	0x77
+ 521 0022 08       		.sleb128 8
+ 522 0023 00000000 		.4byte	0x0
+ 523 0027 00000000 		.4byte	0x0
+ 524              	.LLST1:
+ 525 002b 00000000 		.4byte	.LFB1
+ 526 002f 02000000 		.4byte	.LCFI2
+ 527 0033 0100     		.2byte	0x1
+ 528 0035 5D       		.byte	0x5d
+ 529 0036 02000000 		.4byte	.LCFI2
+ 530 003a 04000000 		.4byte	.LCFI3
+ 531 003e 0200     		.2byte	0x2
+ 532 0040 7D       		.byte	0x7d
+ 533 0041 08       		.sleb128 8
+ 534 0042 04000000 		.4byte	.LCFI3
+ 535 0046 06000000 		.4byte	.LCFI4
+ 536 004a 0200     		.2byte	0x2
+ 537 004c 7D       		.byte	0x7d
+ 538 004d 10       		.sleb128 16
+ 539 004e 06000000 		.4byte	.LCFI4
+ 540 0052 26000000 		.4byte	.LFE1
+ 541 0056 0200     		.2byte	0x2
+ 542 0058 77       		.byte	0x77
+ 543 0059 10       		.sleb128 16
+ 544 005a 00000000 		.4byte	0x0
+ 545 005e 00000000 		.4byte	0x0
+ 546              	.LLST2:
+ 547 0062 00000000 		.4byte	.LFB2
+ 548 0066 02000000 		.4byte	.LCFI5
+ 549 006a 0100     		.2byte	0x1
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 17
+
+
+ 550 006c 5D       		.byte	0x5d
+ 551 006d 02000000 		.4byte	.LCFI5
+ 552 0071 04000000 		.4byte	.LCFI6
+ 553 0075 0200     		.2byte	0x2
+ 554 0077 7D       		.byte	0x7d
+ 555 0078 08       		.sleb128 8
+ 556 0079 04000000 		.4byte	.LCFI6
+ 557 007d 16000000 		.4byte	.LFE2
+ 558 0081 0200     		.2byte	0x2
+ 559 0083 77       		.byte	0x77
+ 560 0084 08       		.sleb128 8
+ 561 0085 00000000 		.4byte	0x0
+ 562 0089 00000000 		.4byte	0x0
+ 563              	.LLST3:
+ 564 008d 00000000 		.4byte	.LFB3
+ 565 0091 02000000 		.4byte	.LCFI7
+ 566 0095 0100     		.2byte	0x1
+ 567 0097 5D       		.byte	0x5d
+ 568 0098 02000000 		.4byte	.LCFI7
+ 569 009c 04000000 		.4byte	.LCFI8
+ 570 00a0 0200     		.2byte	0x2
+ 571 00a2 7D       		.byte	0x7d
+ 572 00a3 08       		.sleb128 8
+ 573 00a4 04000000 		.4byte	.LCFI8
+ 574 00a8 06000000 		.4byte	.LCFI9
+ 575 00ac 0200     		.2byte	0x2
+ 576 00ae 7D       		.byte	0x7d
+ 577 00af 10       		.sleb128 16
+ 578 00b0 06000000 		.4byte	.LCFI9
+ 579 00b4 26000000 		.4byte	.LFE3
+ 580 00b8 0200     		.2byte	0x2
+ 581 00ba 77       		.byte	0x77
+ 582 00bb 10       		.sleb128 16
+ 583 00bc 00000000 		.4byte	0x0
+ 584 00c0 00000000 		.4byte	0x0
+ 585              	.LLST4:
+ 586 00c4 00000000 		.4byte	.LFB4
+ 587 00c8 02000000 		.4byte	.LCFI10
+ 588 00cc 0100     		.2byte	0x1
+ 589 00ce 5D       		.byte	0x5d
+ 590 00cf 02000000 		.4byte	.LCFI10
+ 591 00d3 04000000 		.4byte	.LCFI11
+ 592 00d7 0200     		.2byte	0x2
+ 593 00d9 7D       		.byte	0x7d
+ 594 00da 04       		.sleb128 4
+ 595 00db 04000000 		.4byte	.LCFI11
+ 596 00df 06000000 		.4byte	.LCFI12
+ 597 00e3 0200     		.2byte	0x2
+ 598 00e5 7D       		.byte	0x7d
+ 599 00e6 18       		.sleb128 24
+ 600 00e7 06000000 		.4byte	.LCFI12
+ 601 00eb 28000000 		.4byte	.LFE4
+ 602 00ef 0200     		.2byte	0x2
+ 603 00f1 77       		.byte	0x77
+ 604 00f2 18       		.sleb128 24
+ 605 00f3 00000000 		.4byte	0x0
+ 606 00f7 00000000 		.4byte	0x0
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 18
+
+
+ 607              	.LLST5:
+ 608 00fb 00000000 		.4byte	.LFB5
+ 609 00ff 02000000 		.4byte	.LCFI13
+ 610 0103 0100     		.2byte	0x1
+ 611 0105 5D       		.byte	0x5d
+ 612 0106 02000000 		.4byte	.LCFI13
+ 613 010a 04000000 		.4byte	.LCFI14
+ 614 010e 0200     		.2byte	0x2
+ 615 0110 7D       		.byte	0x7d
+ 616 0111 04       		.sleb128 4
+ 617 0112 04000000 		.4byte	.LCFI14
+ 618 0116 06000000 		.4byte	.LCFI15
+ 619 011a 0200     		.2byte	0x2
+ 620 011c 7D       		.byte	0x7d
+ 621 011d 10       		.sleb128 16
+ 622 011e 06000000 		.4byte	.LCFI15
+ 623 0122 26000000 		.4byte	.LFE5
+ 624 0126 0200     		.2byte	0x2
+ 625 0128 77       		.byte	0x77
+ 626 0129 10       		.sleb128 16
+ 627 012a 00000000 		.4byte	0x0
+ 628 012e 00000000 		.4byte	0x0
+ 629              	.LLST6:
+ 630 0132 00000000 		.4byte	.LFB6
+ 631 0136 02000000 		.4byte	.LCFI16
+ 632 013a 0100     		.2byte	0x1
+ 633 013c 5D       		.byte	0x5d
+ 634 013d 02000000 		.4byte	.LCFI16
+ 635 0141 04000000 		.4byte	.LCFI17
+ 636 0145 0200     		.2byte	0x2
+ 637 0147 7D       		.byte	0x7d
+ 638 0148 04       		.sleb128 4
+ 639 0149 04000000 		.4byte	.LCFI17
+ 640 014d 06000000 		.4byte	.LCFI18
+ 641 0151 0200     		.2byte	0x2
+ 642 0153 7D       		.byte	0x7d
+ 643 0154 10       		.sleb128 16
+ 644 0155 06000000 		.4byte	.LCFI18
+ 645 0159 26000000 		.4byte	.LFE6
+ 646 015d 0200     		.2byte	0x2
+ 647 015f 77       		.byte	0x77
+ 648 0160 10       		.sleb128 16
+ 649 0161 00000000 		.4byte	0x0
+ 650 0165 00000000 		.4byte	0x0
+ 651              	.LLST7:
+ 652 0169 00000000 		.4byte	.LFB7
+ 653 016d 02000000 		.4byte	.LCFI19
+ 654 0171 0100     		.2byte	0x1
+ 655 0173 5D       		.byte	0x5d
+ 656 0174 02000000 		.4byte	.LCFI19
+ 657 0178 04000000 		.4byte	.LCFI20
+ 658 017c 0200     		.2byte	0x2
+ 659 017e 7D       		.byte	0x7d
+ 660 017f 04       		.sleb128 4
+ 661 0180 04000000 		.4byte	.LCFI20
+ 662 0184 06000000 		.4byte	.LCFI21
+ 663 0188 0200     		.2byte	0x2
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 19
+
+
+ 664 018a 7D       		.byte	0x7d
+ 665 018b 10       		.sleb128 16
+ 666 018c 06000000 		.4byte	.LCFI21
+ 667 0190 26000000 		.4byte	.LFE7
+ 668 0194 0200     		.2byte	0x2
+ 669 0196 77       		.byte	0x77
+ 670 0197 10       		.sleb128 16
+ 671 0198 00000000 		.4byte	0x0
+ 672 019c 00000000 		.4byte	0x0
+ 673              	.LLST8:
+ 674 01a0 00000000 		.4byte	.LFB8
+ 675 01a4 02000000 		.4byte	.LCFI22
+ 676 01a8 0100     		.2byte	0x1
+ 677 01aa 5D       		.byte	0x5d
+ 678 01ab 02000000 		.4byte	.LCFI22
+ 679 01af 04000000 		.4byte	.LCFI23
+ 680 01b3 0200     		.2byte	0x2
+ 681 01b5 7D       		.byte	0x7d
+ 682 01b6 04       		.sleb128 4
+ 683 01b7 04000000 		.4byte	.LCFI23
+ 684 01bb 18000000 		.4byte	.LFE8
+ 685 01bf 0200     		.2byte	0x2
+ 686 01c1 77       		.byte	0x77
+ 687 01c2 04       		.sleb128 4
+ 688 01c3 00000000 		.4byte	0x0
+ 689 01c7 00000000 		.4byte	0x0
+ 690              	.LLST9:
+ 691 01cb 00000000 		.4byte	.LFB9
+ 692 01cf 02000000 		.4byte	.LCFI24
+ 693 01d3 0100     		.2byte	0x1
+ 694 01d5 5D       		.byte	0x5d
+ 695 01d6 02000000 		.4byte	.LCFI24
+ 696 01da 04000000 		.4byte	.LCFI25
+ 697 01de 0200     		.2byte	0x2
+ 698 01e0 7D       		.byte	0x7d
+ 699 01e1 04       		.sleb128 4
+ 700 01e2 04000000 		.4byte	.LCFI25
+ 701 01e6 22000000 		.4byte	.LFE9
+ 702 01ea 0200     		.2byte	0x2
+ 703 01ec 77       		.byte	0x77
+ 704 01ed 04       		.sleb128 4
+ 705 01ee 00000000 		.4byte	0x0
+ 706 01f2 00000000 		.4byte	0x0
+ 707              	.LLST10:
+ 708 01f6 00000000 		.4byte	.LFB10
+ 709 01fa 02000000 		.4byte	.LCFI26
+ 710 01fe 0100     		.2byte	0x1
+ 711 0200 5D       		.byte	0x5d
+ 712 0201 02000000 		.4byte	.LCFI26
+ 713 0205 04000000 		.4byte	.LCFI27
+ 714 0209 0200     		.2byte	0x2
+ 715 020b 7D       		.byte	0x7d
+ 716 020c 04       		.sleb128 4
+ 717 020d 04000000 		.4byte	.LCFI27
+ 718 0211 18000000 		.4byte	.LFE10
+ 719 0215 0200     		.2byte	0x2
+ 720 0217 77       		.byte	0x77
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 20
+
+
+ 721 0218 04       		.sleb128 4
+ 722 0219 00000000 		.4byte	0x0
+ 723 021d 00000000 		.4byte	0x0
+ 724              	.LLST11:
+ 725 0221 00000000 		.4byte	.LFB11
+ 726 0225 02000000 		.4byte	.LCFI28
+ 727 0229 0100     		.2byte	0x1
+ 728 022b 5D       		.byte	0x5d
+ 729 022c 02000000 		.4byte	.LCFI28
+ 730 0230 04000000 		.4byte	.LCFI29
+ 731 0234 0200     		.2byte	0x2
+ 732 0236 7D       		.byte	0x7d
+ 733 0237 04       		.sleb128 4
+ 734 0238 04000000 		.4byte	.LCFI29
+ 735 023c 18000000 		.4byte	.LFE11
+ 736 0240 0200     		.2byte	0x2
+ 737 0242 77       		.byte	0x77
+ 738 0243 04       		.sleb128 4
+ 739 0244 00000000 		.4byte	0x0
+ 740 0248 00000000 		.4byte	0x0
+ 741              	.LLST12:
+ 742 024c 00000000 		.4byte	.LFB12
+ 743 0250 02000000 		.4byte	.LCFI30
+ 744 0254 0100     		.2byte	0x1
+ 745 0256 5D       		.byte	0x5d
+ 746 0257 02000000 		.4byte	.LCFI30
+ 747 025b 04000000 		.4byte	.LCFI31
+ 748 025f 0200     		.2byte	0x2
+ 749 0261 7D       		.byte	0x7d
+ 750 0262 04       		.sleb128 4
+ 751 0263 04000000 		.4byte	.LCFI31
+ 752 0267 18000000 		.4byte	.LFE12
+ 753 026b 0200     		.2byte	0x2
+ 754 026d 77       		.byte	0x77
+ 755 026e 04       		.sleb128 4
+ 756 026f 00000000 		.4byte	0x0
+ 757 0273 00000000 		.4byte	0x0
+ 758              		.file 2 "./Generated_Source/PSoC5/cytypes.h"
+ 759              		.section	.debug_info
+ 760 0000 3D020000 		.4byte	0x23d
+ 761 0004 0200     		.2byte	0x2
+ 762 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 763 000a 04       		.byte	0x4
+ 764 000b 01       		.uleb128 0x1
+ 765 000c A3010000 		.4byte	.LASF28
+ 766 0010 01       		.byte	0x1
+ 767 0011 26010000 		.4byte	.LASF29
+ 768 0015 E2010000 		.4byte	.LASF30
+ 769 0019 00000000 		.4byte	0x0
+ 770 001d 00000000 		.4byte	0x0
+ 771 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 772 0025 00000000 		.4byte	.Ldebug_line0
+ 773 0029 02       		.uleb128 0x2
+ 774 002a 01       		.byte	0x1
+ 775 002b 06       		.byte	0x6
+ 776 002c 1F020000 		.4byte	.LASF0
+ 777 0030 02       		.uleb128 0x2
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 21
+
+
+ 778 0031 01       		.byte	0x1
+ 779 0032 08       		.byte	0x8
+ 780 0033 96000000 		.4byte	.LASF1
+ 781 0037 02       		.uleb128 0x2
+ 782 0038 02       		.byte	0x2
+ 783 0039 05       		.byte	0x5
+ 784 003a C3010000 		.4byte	.LASF2
+ 785 003e 02       		.uleb128 0x2
+ 786 003f 02       		.byte	0x2
+ 787 0040 07       		.byte	0x7
+ 788 0041 27000000 		.4byte	.LASF3
+ 789 0045 02       		.uleb128 0x2
+ 790 0046 04       		.byte	0x4
+ 791 0047 05       		.byte	0x5
+ 792 0048 FB010000 		.4byte	.LASF4
+ 793 004c 02       		.uleb128 0x2
+ 794 004d 04       		.byte	0x4
+ 795 004e 07       		.byte	0x7
+ 796 004f B2000000 		.4byte	.LASF5
+ 797 0053 02       		.uleb128 0x2
+ 798 0054 08       		.byte	0x8
+ 799 0055 05       		.byte	0x5
+ 800 0056 00000000 		.4byte	.LASF6
+ 801 005a 02       		.uleb128 0x2
+ 802 005b 08       		.byte	0x8
+ 803 005c 07       		.byte	0x7
+ 804 005d 4F010000 		.4byte	.LASF7
+ 805 0061 03       		.uleb128 0x3
+ 806 0062 04       		.byte	0x4
+ 807 0063 05       		.byte	0x5
+ 808 0064 696E7400 		.ascii	"int\000"
+ 809 0068 02       		.uleb128 0x2
+ 810 0069 04       		.byte	0x4
+ 811 006a 07       		.byte	0x7
+ 812 006b 19010000 		.4byte	.LASF8
+ 813 006f 02       		.uleb128 0x2
+ 814 0070 01       		.byte	0x1
+ 815 0071 08       		.byte	0x8
+ 816 0072 AF010000 		.4byte	.LASF9
+ 817 0076 04       		.uleb128 0x4
+ 818 0077 C4000000 		.4byte	.LASF10
+ 819 007b 02       		.byte	0x2
+ 820 007c 60       		.byte	0x60
+ 821 007d 30000000 		.4byte	0x30
+ 822 0081 05       		.uleb128 0x5
+ 823 0082 66010000 		.4byte	.LASF11
+ 824 0086 02       		.byte	0x2
+ 825 0087 2B01     		.2byte	0x12b
+ 826 0089 8D000000 		.4byte	0x8d
+ 827 008d 06       		.uleb128 0x6
+ 828 008e 04       		.byte	0x4
+ 829 008f 93000000 		.4byte	0x93
+ 830 0093 07       		.uleb128 0x7
+ 831 0094 01       		.byte	0x1
+ 832 0095 08       		.uleb128 0x8
+ 833 0096 04       		.byte	0x4
+ 834 0097 07       		.byte	0x7
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 22
+
+
+ 835 0098 09       		.uleb128 0x9
+ 836 0099 01       		.byte	0x1
+ 837 009a 2B020000 		.4byte	.LASF12
+ 838 009e 01       		.byte	0x1
+ 839 009f 38       		.byte	0x38
+ 840 00a0 01       		.byte	0x1
+ 841 00a1 00000000 		.4byte	.LFB0
+ 842 00a5 22000000 		.4byte	.LFE0
+ 843 00a9 00000000 		.4byte	.LLST0
+ 844 00ad 0A       		.uleb128 0xa
+ 845 00ae 01       		.byte	0x1
+ 846 00af CA000000 		.4byte	.LASF14
+ 847 00b3 01       		.byte	0x1
+ 848 00b4 55       		.byte	0x55
+ 849 00b5 01       		.byte	0x1
+ 850 00b6 00000000 		.4byte	.LFB1
+ 851 00ba 26000000 		.4byte	.LFE1
+ 852 00be 2B000000 		.4byte	.LLST1
+ 853 00c2 D5000000 		.4byte	0xd5
+ 854 00c6 0B       		.uleb128 0xb
+ 855 00c7 AA000000 		.4byte	.LASF17
+ 856 00cb 01       		.byte	0x1
+ 857 00cc 55       		.byte	0x55
+ 858 00cd 81000000 		.4byte	0x81
+ 859 00d1 02       		.byte	0x2
+ 860 00d2 91       		.byte	0x91
+ 861 00d3 74       		.sleb128 -12
+ 862 00d4 00       		.byte	0x0
+ 863 00d5 09       		.uleb128 0x9
+ 864 00d6 01       		.byte	0x1
+ 865 00d7 3A000000 		.4byte	.LASF13
+ 866 00db 01       		.byte	0x1
+ 867 00dc 71       		.byte	0x71
+ 868 00dd 01       		.byte	0x1
+ 869 00de 00000000 		.4byte	.LFB2
+ 870 00e2 16000000 		.4byte	.LFE2
+ 871 00e6 62000000 		.4byte	.LLST2
+ 872 00ea 0A       		.uleb128 0xa
+ 873 00eb 01       		.byte	0x1
+ 874 00ec 8B010000 		.4byte	.LASF15
+ 875 00f0 01       		.byte	0x1
+ 876 00f1 8C       		.byte	0x8c
+ 877 00f2 01       		.byte	0x1
+ 878 00f3 00000000 		.4byte	.LFB3
+ 879 00f7 26000000 		.4byte	.LFE3
+ 880 00fb 8D000000 		.4byte	.LLST3
+ 881 00ff 12010000 		.4byte	0x112
+ 882 0103 0C       		.uleb128 0xc
+ 883 0104 A4000000 		.4byte	.LASF18
+ 884 0108 01       		.byte	0x1
+ 885 0109 90       		.byte	0x90
+ 886 010a 76000000 		.4byte	0x76
+ 887 010e 02       		.byte	0x2
+ 888 010f 91       		.byte	0x91
+ 889 0110 77       		.sleb128 -9
+ 890 0111 00       		.byte	0x0
+ 891 0112 0A       		.uleb128 0xa
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 23
+
+
+ 892 0113 01       		.byte	0x1
+ 893 0114 7E000000 		.4byte	.LASF16
+ 894 0118 01       		.byte	0x1
+ 895 0119 A8       		.byte	0xa8
+ 896 011a 01       		.byte	0x1
+ 897 011b 00000000 		.4byte	.LFB4
+ 898 011f 28000000 		.4byte	.LFE4
+ 899 0123 C4000000 		.4byte	.LLST4
+ 900 0127 48010000 		.4byte	0x148
+ 901 012b 0B       		.uleb128 0xb
+ 902 012c AA000000 		.4byte	.LASF17
+ 903 0130 01       		.byte	0x1
+ 904 0131 A8       		.byte	0xa8
+ 905 0132 81000000 		.4byte	0x81
+ 906 0136 02       		.byte	0x2
+ 907 0137 91       		.byte	0x91
+ 908 0138 6C       		.sleb128 -20
+ 909 0139 0C       		.uleb128 0xc
+ 910 013a B4010000 		.4byte	.LASF19
+ 911 013e 01       		.byte	0x1
+ 912 013f AA       		.byte	0xaa
+ 913 0140 48010000 		.4byte	0x148
+ 914 0144 02       		.byte	0x2
+ 915 0145 91       		.byte	0x91
+ 916 0146 74       		.sleb128 -12
+ 917 0147 00       		.byte	0x0
+ 918 0148 06       		.uleb128 0x6
+ 919 0149 04       		.byte	0x4
+ 920 014a 81000000 		.4byte	0x81
+ 921 014e 0D       		.uleb128 0xd
+ 922 014f 01       		.byte	0x1
+ 923 0150 73010000 		.4byte	.LASF22
+ 924 0154 01       		.byte	0x1
+ 925 0155 C1       		.byte	0xc1
+ 926 0156 01       		.byte	0x1
+ 927 0157 81000000 		.4byte	0x81
+ 928 015b 00000000 		.4byte	.LFB5
+ 929 015f 26000000 		.4byte	.LFE5
+ 930 0163 FB000000 		.4byte	.LLST5
+ 931 0167 7A010000 		.4byte	0x17a
+ 932 016b 0C       		.uleb128 0xc
+ 933 016c B4010000 		.4byte	.LASF19
+ 934 0170 01       		.byte	0x1
+ 935 0171 C3       		.byte	0xc3
+ 936 0172 48010000 		.4byte	0x148
+ 937 0176 02       		.byte	0x2
+ 938 0177 91       		.byte	0x91
+ 939 0178 74       		.sleb128 -12
+ 940 0179 00       		.byte	0x0
+ 941 017a 0A       		.uleb128 0xa
+ 942 017b 01       		.byte	0x1
+ 943 017c E9000000 		.4byte	.LASF20
+ 944 0180 01       		.byte	0x1
+ 945 0181 DE       		.byte	0xde
+ 946 0182 01       		.byte	0x1
+ 947 0183 00000000 		.4byte	.LFB6
+ 948 0187 26000000 		.4byte	.LFE6
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 24
+
+
+ 949 018b 32010000 		.4byte	.LLST6
+ 950 018f A2010000 		.4byte	0x1a2
+ 951 0193 0B       		.uleb128 0xb
+ 952 0194 E0000000 		.4byte	.LASF21
+ 953 0198 01       		.byte	0x1
+ 954 0199 DE       		.byte	0xde
+ 955 019a 76000000 		.4byte	0x76
+ 956 019e 02       		.byte	0x2
+ 957 019f 91       		.byte	0x91
+ 958 01a0 77       		.sleb128 -9
+ 959 01a1 00       		.byte	0x0
+ 960 01a2 0D       		.uleb128 0xd
+ 961 01a3 01       		.byte	0x1
+ 962 01a4 4D000000 		.4byte	.LASF23
+ 963 01a8 01       		.byte	0x1
+ 964 01a9 F3       		.byte	0xf3
+ 965 01aa 01       		.byte	0x1
+ 966 01ab 76000000 		.4byte	0x76
+ 967 01af 00000000 		.4byte	.LFB7
+ 968 01b3 26000000 		.4byte	.LFE7
+ 969 01b7 69010000 		.4byte	.LLST7
+ 970 01bb CE010000 		.4byte	0x1ce
+ 971 01bf 0C       		.uleb128 0xc
+ 972 01c0 E0000000 		.4byte	.LASF21
+ 973 01c4 01       		.byte	0x1
+ 974 01c5 F5       		.byte	0xf5
+ 975 01c6 76000000 		.4byte	0x76
+ 976 01ca 02       		.byte	0x2
+ 977 01cb 91       		.byte	0x91
+ 978 01cc 77       		.sleb128 -9
+ 979 01cd 00       		.byte	0x0
+ 980 01ce 0E       		.uleb128 0xe
+ 981 01cf 01       		.byte	0x1
+ 982 01d0 CD010000 		.4byte	.LASF24
+ 983 01d4 01       		.byte	0x1
+ 984 01d5 0D01     		.2byte	0x10d
+ 985 01d7 01       		.byte	0x1
+ 986 01d8 00000000 		.4byte	.LFB8
+ 987 01dc 18000000 		.4byte	.LFE8
+ 988 01e0 A0010000 		.4byte	.LLST8
+ 989 01e4 0F       		.uleb128 0xf
+ 990 01e5 01       		.byte	0x1
+ 991 01e6 67000000 		.4byte	.LASF31
+ 992 01ea 01       		.byte	0x1
+ 993 01eb 2301     		.2byte	0x123
+ 994 01ed 01       		.byte	0x1
+ 995 01ee 76000000 		.4byte	0x76
+ 996 01f2 00000000 		.4byte	.LFB9
+ 997 01f6 22000000 		.4byte	.LFE9
+ 998 01fa CB010000 		.4byte	.LLST9
+ 999 01fe 0E       		.uleb128 0xe
+ 1000 01ff 01       		.byte	0x1
+ 1001 0200 03010000 		.4byte	.LASF25
+ 1002 0204 01       		.byte	0x1
+ 1003 0205 3901     		.2byte	0x139
+ 1004 0207 01       		.byte	0x1
+ 1005 0208 00000000 		.4byte	.LFB10
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 25
+
+
+ 1006 020c 18000000 		.4byte	.LFE10
+ 1007 0210 F6010000 		.4byte	.LLST10
+ 1008 0214 0E       		.uleb128 0xe
+ 1009 0215 01       		.byte	0x1
+ 1010 0216 0E000000 		.4byte	.LASF26
+ 1011 021a 01       		.byte	0x1
+ 1012 021b 5001     		.2byte	0x150
+ 1013 021d 01       		.byte	0x1
+ 1014 021e 00000000 		.4byte	.LFB11
+ 1015 0222 18000000 		.4byte	.LFE11
+ 1016 0226 21020000 		.4byte	.LLST11
+ 1017 022a 0E       		.uleb128 0xe
+ 1018 022b 01       		.byte	0x1
+ 1019 022c 04020000 		.4byte	.LASF27
+ 1020 0230 01       		.byte	0x1
+ 1021 0231 6401     		.2byte	0x164
+ 1022 0233 01       		.byte	0x1
+ 1023 0234 00000000 		.4byte	.LFB12
+ 1024 0238 18000000 		.4byte	.LFE12
+ 1025 023c 4C020000 		.4byte	.LLST12
+ 1026 0240 00       		.byte	0x0
+ 1027              		.section	.debug_abbrev
+ 1028 0000 01       		.uleb128 0x1
+ 1029 0001 11       		.uleb128 0x11
+ 1030 0002 01       		.byte	0x1
+ 1031 0003 25       		.uleb128 0x25
+ 1032 0004 0E       		.uleb128 0xe
+ 1033 0005 13       		.uleb128 0x13
+ 1034 0006 0B       		.uleb128 0xb
+ 1035 0007 03       		.uleb128 0x3
+ 1036 0008 0E       		.uleb128 0xe
+ 1037 0009 1B       		.uleb128 0x1b
+ 1038 000a 0E       		.uleb128 0xe
+ 1039 000b 11       		.uleb128 0x11
+ 1040 000c 01       		.uleb128 0x1
+ 1041 000d 52       		.uleb128 0x52
+ 1042 000e 01       		.uleb128 0x1
+ 1043 000f 55       		.uleb128 0x55
+ 1044 0010 06       		.uleb128 0x6
+ 1045 0011 10       		.uleb128 0x10
+ 1046 0012 06       		.uleb128 0x6
+ 1047 0013 00       		.byte	0x0
+ 1048 0014 00       		.byte	0x0
+ 1049 0015 02       		.uleb128 0x2
+ 1050 0016 24       		.uleb128 0x24
+ 1051 0017 00       		.byte	0x0
+ 1052 0018 0B       		.uleb128 0xb
+ 1053 0019 0B       		.uleb128 0xb
+ 1054 001a 3E       		.uleb128 0x3e
+ 1055 001b 0B       		.uleb128 0xb
+ 1056 001c 03       		.uleb128 0x3
+ 1057 001d 0E       		.uleb128 0xe
+ 1058 001e 00       		.byte	0x0
+ 1059 001f 00       		.byte	0x0
+ 1060 0020 03       		.uleb128 0x3
+ 1061 0021 24       		.uleb128 0x24
+ 1062 0022 00       		.byte	0x0
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 26
+
+
+ 1063 0023 0B       		.uleb128 0xb
+ 1064 0024 0B       		.uleb128 0xb
+ 1065 0025 3E       		.uleb128 0x3e
+ 1066 0026 0B       		.uleb128 0xb
+ 1067 0027 03       		.uleb128 0x3
+ 1068 0028 08       		.uleb128 0x8
+ 1069 0029 00       		.byte	0x0
+ 1070 002a 00       		.byte	0x0
+ 1071 002b 04       		.uleb128 0x4
+ 1072 002c 16       		.uleb128 0x16
+ 1073 002d 00       		.byte	0x0
+ 1074 002e 03       		.uleb128 0x3
+ 1075 002f 0E       		.uleb128 0xe
+ 1076 0030 3A       		.uleb128 0x3a
+ 1077 0031 0B       		.uleb128 0xb
+ 1078 0032 3B       		.uleb128 0x3b
+ 1079 0033 0B       		.uleb128 0xb
+ 1080 0034 49       		.uleb128 0x49
+ 1081 0035 13       		.uleb128 0x13
+ 1082 0036 00       		.byte	0x0
+ 1083 0037 00       		.byte	0x0
+ 1084 0038 05       		.uleb128 0x5
+ 1085 0039 16       		.uleb128 0x16
+ 1086 003a 00       		.byte	0x0
+ 1087 003b 03       		.uleb128 0x3
+ 1088 003c 0E       		.uleb128 0xe
+ 1089 003d 3A       		.uleb128 0x3a
+ 1090 003e 0B       		.uleb128 0xb
+ 1091 003f 3B       		.uleb128 0x3b
+ 1092 0040 05       		.uleb128 0x5
+ 1093 0041 49       		.uleb128 0x49
+ 1094 0042 13       		.uleb128 0x13
+ 1095 0043 00       		.byte	0x0
+ 1096 0044 00       		.byte	0x0
+ 1097 0045 06       		.uleb128 0x6
+ 1098 0046 0F       		.uleb128 0xf
+ 1099 0047 00       		.byte	0x0
+ 1100 0048 0B       		.uleb128 0xb
+ 1101 0049 0B       		.uleb128 0xb
+ 1102 004a 49       		.uleb128 0x49
+ 1103 004b 13       		.uleb128 0x13
+ 1104 004c 00       		.byte	0x0
+ 1105 004d 00       		.byte	0x0
+ 1106 004e 07       		.uleb128 0x7
+ 1107 004f 15       		.uleb128 0x15
+ 1108 0050 00       		.byte	0x0
+ 1109 0051 27       		.uleb128 0x27
+ 1110 0052 0C       		.uleb128 0xc
+ 1111 0053 00       		.byte	0x0
+ 1112 0054 00       		.byte	0x0
+ 1113 0055 08       		.uleb128 0x8
+ 1114 0056 24       		.uleb128 0x24
+ 1115 0057 00       		.byte	0x0
+ 1116 0058 0B       		.uleb128 0xb
+ 1117 0059 0B       		.uleb128 0xb
+ 1118 005a 3E       		.uleb128 0x3e
+ 1119 005b 0B       		.uleb128 0xb
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 27
+
+
+ 1120 005c 00       		.byte	0x0
+ 1121 005d 00       		.byte	0x0
+ 1122 005e 09       		.uleb128 0x9
+ 1123 005f 2E       		.uleb128 0x2e
+ 1124 0060 00       		.byte	0x0
+ 1125 0061 3F       		.uleb128 0x3f
+ 1126 0062 0C       		.uleb128 0xc
+ 1127 0063 03       		.uleb128 0x3
+ 1128 0064 0E       		.uleb128 0xe
+ 1129 0065 3A       		.uleb128 0x3a
+ 1130 0066 0B       		.uleb128 0xb
+ 1131 0067 3B       		.uleb128 0x3b
+ 1132 0068 0B       		.uleb128 0xb
+ 1133 0069 27       		.uleb128 0x27
+ 1134 006a 0C       		.uleb128 0xc
+ 1135 006b 11       		.uleb128 0x11
+ 1136 006c 01       		.uleb128 0x1
+ 1137 006d 12       		.uleb128 0x12
+ 1138 006e 01       		.uleb128 0x1
+ 1139 006f 40       		.uleb128 0x40
+ 1140 0070 06       		.uleb128 0x6
+ 1141 0071 00       		.byte	0x0
+ 1142 0072 00       		.byte	0x0
+ 1143 0073 0A       		.uleb128 0xa
+ 1144 0074 2E       		.uleb128 0x2e
+ 1145 0075 01       		.byte	0x1
+ 1146 0076 3F       		.uleb128 0x3f
+ 1147 0077 0C       		.uleb128 0xc
+ 1148 0078 03       		.uleb128 0x3
+ 1149 0079 0E       		.uleb128 0xe
+ 1150 007a 3A       		.uleb128 0x3a
+ 1151 007b 0B       		.uleb128 0xb
+ 1152 007c 3B       		.uleb128 0x3b
+ 1153 007d 0B       		.uleb128 0xb
+ 1154 007e 27       		.uleb128 0x27
+ 1155 007f 0C       		.uleb128 0xc
+ 1156 0080 11       		.uleb128 0x11
+ 1157 0081 01       		.uleb128 0x1
+ 1158 0082 12       		.uleb128 0x12
+ 1159 0083 01       		.uleb128 0x1
+ 1160 0084 40       		.uleb128 0x40
+ 1161 0085 06       		.uleb128 0x6
+ 1162 0086 01       		.uleb128 0x1
+ 1163 0087 13       		.uleb128 0x13
+ 1164 0088 00       		.byte	0x0
+ 1165 0089 00       		.byte	0x0
+ 1166 008a 0B       		.uleb128 0xb
+ 1167 008b 05       		.uleb128 0x5
+ 1168 008c 00       		.byte	0x0
+ 1169 008d 03       		.uleb128 0x3
+ 1170 008e 0E       		.uleb128 0xe
+ 1171 008f 3A       		.uleb128 0x3a
+ 1172 0090 0B       		.uleb128 0xb
+ 1173 0091 3B       		.uleb128 0x3b
+ 1174 0092 0B       		.uleb128 0xb
+ 1175 0093 49       		.uleb128 0x49
+ 1176 0094 13       		.uleb128 0x13
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 28
+
+
+ 1177 0095 02       		.uleb128 0x2
+ 1178 0096 0A       		.uleb128 0xa
+ 1179 0097 00       		.byte	0x0
+ 1180 0098 00       		.byte	0x0
+ 1181 0099 0C       		.uleb128 0xc
+ 1182 009a 34       		.uleb128 0x34
+ 1183 009b 00       		.byte	0x0
+ 1184 009c 03       		.uleb128 0x3
+ 1185 009d 0E       		.uleb128 0xe
+ 1186 009e 3A       		.uleb128 0x3a
+ 1187 009f 0B       		.uleb128 0xb
+ 1188 00a0 3B       		.uleb128 0x3b
+ 1189 00a1 0B       		.uleb128 0xb
+ 1190 00a2 49       		.uleb128 0x49
+ 1191 00a3 13       		.uleb128 0x13
+ 1192 00a4 02       		.uleb128 0x2
+ 1193 00a5 0A       		.uleb128 0xa
+ 1194 00a6 00       		.byte	0x0
+ 1195 00a7 00       		.byte	0x0
+ 1196 00a8 0D       		.uleb128 0xd
+ 1197 00a9 2E       		.uleb128 0x2e
+ 1198 00aa 01       		.byte	0x1
+ 1199 00ab 3F       		.uleb128 0x3f
+ 1200 00ac 0C       		.uleb128 0xc
+ 1201 00ad 03       		.uleb128 0x3
+ 1202 00ae 0E       		.uleb128 0xe
+ 1203 00af 3A       		.uleb128 0x3a
+ 1204 00b0 0B       		.uleb128 0xb
+ 1205 00b1 3B       		.uleb128 0x3b
+ 1206 00b2 0B       		.uleb128 0xb
+ 1207 00b3 27       		.uleb128 0x27
+ 1208 00b4 0C       		.uleb128 0xc
+ 1209 00b5 49       		.uleb128 0x49
+ 1210 00b6 13       		.uleb128 0x13
+ 1211 00b7 11       		.uleb128 0x11
+ 1212 00b8 01       		.uleb128 0x1
+ 1213 00b9 12       		.uleb128 0x12
+ 1214 00ba 01       		.uleb128 0x1
+ 1215 00bb 40       		.uleb128 0x40
+ 1216 00bc 06       		.uleb128 0x6
+ 1217 00bd 01       		.uleb128 0x1
+ 1218 00be 13       		.uleb128 0x13
+ 1219 00bf 00       		.byte	0x0
+ 1220 00c0 00       		.byte	0x0
+ 1221 00c1 0E       		.uleb128 0xe
+ 1222 00c2 2E       		.uleb128 0x2e
+ 1223 00c3 00       		.byte	0x0
+ 1224 00c4 3F       		.uleb128 0x3f
+ 1225 00c5 0C       		.uleb128 0xc
+ 1226 00c6 03       		.uleb128 0x3
+ 1227 00c7 0E       		.uleb128 0xe
+ 1228 00c8 3A       		.uleb128 0x3a
+ 1229 00c9 0B       		.uleb128 0xb
+ 1230 00ca 3B       		.uleb128 0x3b
+ 1231 00cb 05       		.uleb128 0x5
+ 1232 00cc 27       		.uleb128 0x27
+ 1233 00cd 0C       		.uleb128 0xc
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 29
+
+
+ 1234 00ce 11       		.uleb128 0x11
+ 1235 00cf 01       		.uleb128 0x1
+ 1236 00d0 12       		.uleb128 0x12
+ 1237 00d1 01       		.uleb128 0x1
+ 1238 00d2 40       		.uleb128 0x40
+ 1239 00d3 06       		.uleb128 0x6
+ 1240 00d4 00       		.byte	0x0
+ 1241 00d5 00       		.byte	0x0
+ 1242 00d6 0F       		.uleb128 0xf
+ 1243 00d7 2E       		.uleb128 0x2e
+ 1244 00d8 00       		.byte	0x0
+ 1245 00d9 3F       		.uleb128 0x3f
+ 1246 00da 0C       		.uleb128 0xc
+ 1247 00db 03       		.uleb128 0x3
+ 1248 00dc 0E       		.uleb128 0xe
+ 1249 00dd 3A       		.uleb128 0x3a
+ 1250 00de 0B       		.uleb128 0xb
+ 1251 00df 3B       		.uleb128 0x3b
+ 1252 00e0 05       		.uleb128 0x5
+ 1253 00e1 27       		.uleb128 0x27
+ 1254 00e2 0C       		.uleb128 0xc
+ 1255 00e3 49       		.uleb128 0x49
+ 1256 00e4 13       		.uleb128 0x13
+ 1257 00e5 11       		.uleb128 0x11
+ 1258 00e6 01       		.uleb128 0x1
+ 1259 00e7 12       		.uleb128 0x12
+ 1260 00e8 01       		.uleb128 0x1
+ 1261 00e9 40       		.uleb128 0x40
+ 1262 00ea 06       		.uleb128 0x6
+ 1263 00eb 00       		.byte	0x0
+ 1264 00ec 00       		.byte	0x0
+ 1265 00ed 00       		.byte	0x0
+ 1266              		.section	.debug_pubnames,"",%progbits
+ 1267 0000 71010000 		.4byte	0x171
+ 1268 0004 0200     		.2byte	0x2
+ 1269 0006 00000000 		.4byte	.Ldebug_info0
+ 1270 000a 41020000 		.4byte	0x241
+ 1271 000e 98000000 		.4byte	0x98
+ 1272 0012 72785F69 		.ascii	"rx_int_Amulet_Start\000"
+ 1272      6E745F41 
+ 1272      6D756C65 
+ 1272      745F5374 
+ 1272      61727400 
+ 1273 0026 AD000000 		.4byte	0xad
+ 1274 002a 72785F69 		.ascii	"rx_int_Amulet_StartEx\000"
+ 1274      6E745F41 
+ 1274      6D756C65 
+ 1274      745F5374 
+ 1274      61727445 
+ 1275 0040 D5000000 		.4byte	0xd5
+ 1276 0044 72785F69 		.ascii	"rx_int_Amulet_Stop\000"
+ 1276      6E745F41 
+ 1276      6D756C65 
+ 1276      745F5374 
+ 1276      6F7000
+ 1277 0057 EA000000 		.4byte	0xea
+ 1278 005b 72785F69 		.ascii	"rx_int_Amulet_Interrupt\000"
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 30
+
+
+ 1278      6E745F41 
+ 1278      6D756C65 
+ 1278      745F496E 
+ 1278      74657272 
+ 1279 0073 12010000 		.4byte	0x112
+ 1280 0077 72785F69 		.ascii	"rx_int_Amulet_SetVector\000"
+ 1280      6E745F41 
+ 1280      6D756C65 
+ 1280      745F5365 
+ 1280      74566563 
+ 1281 008f 4E010000 		.4byte	0x14e
+ 1282 0093 72785F69 		.ascii	"rx_int_Amulet_GetVector\000"
+ 1282      6E745F41 
+ 1282      6D756C65 
+ 1282      745F4765 
+ 1282      74566563 
+ 1283 00ab 7A010000 		.4byte	0x17a
+ 1284 00af 72785F69 		.ascii	"rx_int_Amulet_SetPriority\000"
+ 1284      6E745F41 
+ 1284      6D756C65 
+ 1284      745F5365 
+ 1284      74507269 
+ 1285 00c9 A2010000 		.4byte	0x1a2
+ 1286 00cd 72785F69 		.ascii	"rx_int_Amulet_GetPriority\000"
+ 1286      6E745F41 
+ 1286      6D756C65 
+ 1286      745F4765 
+ 1286      74507269 
+ 1287 00e7 CE010000 		.4byte	0x1ce
+ 1288 00eb 72785F69 		.ascii	"rx_int_Amulet_Enable\000"
+ 1288      6E745F41 
+ 1288      6D756C65 
+ 1288      745F456E 
+ 1288      61626C65 
+ 1289 0100 E4010000 		.4byte	0x1e4
+ 1290 0104 72785F69 		.ascii	"rx_int_Amulet_GetState\000"
+ 1290      6E745F41 
+ 1290      6D756C65 
+ 1290      745F4765 
+ 1290      74537461 
+ 1291 011b FE010000 		.4byte	0x1fe
+ 1292 011f 72785F69 		.ascii	"rx_int_Amulet_Disable\000"
+ 1292      6E745F41 
+ 1292      6D756C65 
+ 1292      745F4469 
+ 1292      7361626C 
+ 1293 0135 14020000 		.4byte	0x214
+ 1294 0139 72785F69 		.ascii	"rx_int_Amulet_SetPending\000"
+ 1294      6E745F41 
+ 1294      6D756C65 
+ 1294      745F5365 
+ 1294      7450656E 
+ 1295 0152 2A020000 		.4byte	0x22a
+ 1296 0156 72785F69 		.ascii	"rx_int_Amulet_ClearPending\000"
+ 1296      6E745F41 
+ 1296      6D756C65 
+ 1296      745F436C 
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 31
+
+
+ 1296      65617250 
+ 1297 0171 00000000 		.4byte	0x0
+ 1298              		.section	.debug_aranges,"",%progbits
+ 1299 0000 7C000000 		.4byte	0x7c
+ 1300 0004 0200     		.2byte	0x2
+ 1301 0006 00000000 		.4byte	.Ldebug_info0
+ 1302 000a 04       		.byte	0x4
+ 1303 000b 00       		.byte	0x0
+ 1304 000c 0000     		.2byte	0x0
+ 1305 000e 0000     		.2byte	0x0
+ 1306 0010 00000000 		.4byte	.LFB0
+ 1307 0014 22000000 		.4byte	.LFE0-.LFB0
+ 1308 0018 00000000 		.4byte	.LFB1
+ 1309 001c 26000000 		.4byte	.LFE1-.LFB1
+ 1310 0020 00000000 		.4byte	.LFB2
+ 1311 0024 16000000 		.4byte	.LFE2-.LFB2
+ 1312 0028 00000000 		.4byte	.LFB3
+ 1313 002c 26000000 		.4byte	.LFE3-.LFB3
+ 1314 0030 00000000 		.4byte	.LFB4
+ 1315 0034 28000000 		.4byte	.LFE4-.LFB4
+ 1316 0038 00000000 		.4byte	.LFB5
+ 1317 003c 26000000 		.4byte	.LFE5-.LFB5
+ 1318 0040 00000000 		.4byte	.LFB6
+ 1319 0044 26000000 		.4byte	.LFE6-.LFB6
+ 1320 0048 00000000 		.4byte	.LFB7
+ 1321 004c 26000000 		.4byte	.LFE7-.LFB7
+ 1322 0050 00000000 		.4byte	.LFB8
+ 1323 0054 18000000 		.4byte	.LFE8-.LFB8
+ 1324 0058 00000000 		.4byte	.LFB9
+ 1325 005c 22000000 		.4byte	.LFE9-.LFB9
+ 1326 0060 00000000 		.4byte	.LFB10
+ 1327 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1328 0068 00000000 		.4byte	.LFB11
+ 1329 006c 18000000 		.4byte	.LFE11-.LFB11
+ 1330 0070 00000000 		.4byte	.LFB12
+ 1331 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1332 0078 00000000 		.4byte	0x0
+ 1333 007c 00000000 		.4byte	0x0
+ 1334              		.section	.debug_ranges,"",%progbits
+ 1335              	.Ldebug_ranges0:
+ 1336 0000 00000000 		.4byte	.Ltext0
+ 1337 0004 00000000 		.4byte	.Letext0
+ 1338 0008 00000000 		.4byte	.LFB0
+ 1339 000c 22000000 		.4byte	.LFE0
+ 1340 0010 00000000 		.4byte	.LFB1
+ 1341 0014 26000000 		.4byte	.LFE1
+ 1342 0018 00000000 		.4byte	.LFB2
+ 1343 001c 16000000 		.4byte	.LFE2
+ 1344 0020 00000000 		.4byte	.LFB3
+ 1345 0024 26000000 		.4byte	.LFE3
+ 1346 0028 00000000 		.4byte	.LFB4
+ 1347 002c 28000000 		.4byte	.LFE4
+ 1348 0030 00000000 		.4byte	.LFB5
+ 1349 0034 26000000 		.4byte	.LFE5
+ 1350 0038 00000000 		.4byte	.LFB6
+ 1351 003c 26000000 		.4byte	.LFE6
+ 1352 0040 00000000 		.4byte	.LFB7
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 32
+
+
+ 1353 0044 26000000 		.4byte	.LFE7
+ 1354 0048 00000000 		.4byte	.LFB8
+ 1355 004c 18000000 		.4byte	.LFE8
+ 1356 0050 00000000 		.4byte	.LFB9
+ 1357 0054 22000000 		.4byte	.LFE9
+ 1358 0058 00000000 		.4byte	.LFB10
+ 1359 005c 18000000 		.4byte	.LFE10
+ 1360 0060 00000000 		.4byte	.LFB11
+ 1361 0064 18000000 		.4byte	.LFE11
+ 1362 0068 00000000 		.4byte	.LFB12
+ 1363 006c 18000000 		.4byte	.LFE12
+ 1364 0070 00000000 		.4byte	0x0
+ 1365 0074 00000000 		.4byte	0x0
+ 1366              		.section	.debug_str,"MS",%progbits,1
+ 1367              	.LASF6:
+ 1368 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1368      206C6F6E 
+ 1368      6720696E 
+ 1368      7400
+ 1369              	.LASF26:
+ 1370 000e 72785F69 		.ascii	"rx_int_Amulet_SetPending\000"
+ 1370      6E745F41 
+ 1370      6D756C65 
+ 1370      745F5365 
+ 1370      7450656E 
+ 1371              	.LASF3:
+ 1372 0027 73686F72 		.ascii	"short unsigned int\000"
+ 1372      7420756E 
+ 1372      7369676E 
+ 1372      65642069 
+ 1372      6E7400
+ 1373              	.LASF13:
+ 1374 003a 72785F69 		.ascii	"rx_int_Amulet_Stop\000"
+ 1374      6E745F41 
+ 1374      6D756C65 
+ 1374      745F5374 
+ 1374      6F7000
+ 1375              	.LASF23:
+ 1376 004d 72785F69 		.ascii	"rx_int_Amulet_GetPriority\000"
+ 1376      6E745F41 
+ 1376      6D756C65 
+ 1376      745F4765 
+ 1376      74507269 
+ 1377              	.LASF31:
+ 1378 0067 72785F69 		.ascii	"rx_int_Amulet_GetState\000"
+ 1378      6E745F41 
+ 1378      6D756C65 
+ 1378      745F4765 
+ 1378      74537461 
+ 1379              	.LASF16:
+ 1380 007e 72785F69 		.ascii	"rx_int_Amulet_SetVector\000"
+ 1380      6E745F41 
+ 1380      6D756C65 
+ 1380      745F5365 
+ 1380      74566563 
+ 1381              	.LASF1:
+ 1382 0096 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 33
+
+
+ 1382      676E6564 
+ 1382      20636861 
+ 1382      7200
+ 1383              	.LASF18:
+ 1384 00a4 696E7075 		.ascii	"input\000"
+ 1384      7400
+ 1385              	.LASF17:
+ 1386 00aa 61646472 		.ascii	"address\000"
+ 1386      65737300 
+ 1387              	.LASF5:
+ 1388 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1388      20756E73 
+ 1388      69676E65 
+ 1388      6420696E 
+ 1388      7400
+ 1389              	.LASF10:
+ 1390 00c4 75696E74 		.ascii	"uint8\000"
+ 1390      3800
+ 1391              	.LASF14:
+ 1392 00ca 72785F69 		.ascii	"rx_int_Amulet_StartEx\000"
+ 1392      6E745F41 
+ 1392      6D756C65 
+ 1392      745F5374 
+ 1392      61727445 
+ 1393              	.LASF21:
+ 1394 00e0 7072696F 		.ascii	"priority\000"
+ 1394      72697479 
+ 1394      00
+ 1395              	.LASF20:
+ 1396 00e9 72785F69 		.ascii	"rx_int_Amulet_SetPriority\000"
+ 1396      6E745F41 
+ 1396      6D756C65 
+ 1396      745F5365 
+ 1396      74507269 
+ 1397              	.LASF25:
+ 1398 0103 72785F69 		.ascii	"rx_int_Amulet_Disable\000"
+ 1398      6E745F41 
+ 1398      6D756C65 
+ 1398      745F4469 
+ 1398      7361626C 
+ 1399              	.LASF8:
+ 1400 0119 756E7369 		.ascii	"unsigned int\000"
+ 1400      676E6564 
+ 1400      20696E74 
+ 1400      00
+ 1401              	.LASF29:
+ 1402 0126 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\rx_int_Amulet.c\000"
+ 1402      6E657261 
+ 1402      7465645F 
+ 1402      536F7572 
+ 1402      63655C50 
+ 1403              	.LASF7:
+ 1404 014f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1404      206C6F6E 
+ 1404      6720756E 
+ 1404      7369676E 
+ 1404      65642069 
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 34
+
+
+ 1405              	.LASF11:
+ 1406 0166 63796973 		.ascii	"cyisraddress\000"
+ 1406      72616464 
+ 1406      72657373 
+ 1406      00
+ 1407              	.LASF22:
+ 1408 0173 72785F69 		.ascii	"rx_int_Amulet_GetVector\000"
+ 1408      6E745F41 
+ 1408      6D756C65 
+ 1408      745F4765 
+ 1408      74566563 
+ 1409              	.LASF15:
+ 1410 018b 72785F69 		.ascii	"rx_int_Amulet_Interrupt\000"
+ 1410      6E745F41 
+ 1410      6D756C65 
+ 1410      745F496E 
+ 1410      74657272 
+ 1411              	.LASF28:
+ 1412 01a3 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 1412      4320342E 
+ 1412      342E3100 
+ 1413              	.LASF9:
+ 1414 01af 63686172 		.ascii	"char\000"
+ 1414      00
+ 1415              	.LASF19:
+ 1416 01b4 72616D56 		.ascii	"ramVectorTable\000"
+ 1416      6563746F 
+ 1416      72546162 
+ 1416      6C6500
+ 1417              	.LASF2:
+ 1418 01c3 73686F72 		.ascii	"short int\000"
+ 1418      7420696E 
+ 1418      7400
+ 1419              	.LASF24:
+ 1420 01cd 72785F69 		.ascii	"rx_int_Amulet_Enable\000"
+ 1420      6E745F41 
+ 1420      6D756C65 
+ 1420      745F456E 
+ 1420      61626C65 
+ 1421              	.LASF30:
+ 1422 01e2 453A5C36 		.ascii	"E:\\6.115\\FFT\\RS232.cydsn\000"
+ 1422      2E313135 
+ 1422      5C464654 
+ 1422      5C525332 
+ 1422      33322E63 
+ 1423              	.LASF4:
+ 1424 01fb 6C6F6E67 		.ascii	"long int\000"
+ 1424      20696E74 
+ 1424      00
+ 1425              	.LASF27:
+ 1426 0204 72785F69 		.ascii	"rx_int_Amulet_ClearPending\000"
+ 1426      6E745F41 
+ 1426      6D756C65 
+ 1426      745F436C 
+ 1426      65617250 
+ 1427              	.LASF0:
+ 1428 021f 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\DOCUME~1\student\LOCALS~1\Temp\ccxu1ZNE.s 			page 35
+
+
+ 1428      65642063 
+ 1428      68617200 
+ 1429              	.LASF12:
+ 1430 022b 72785F69 		.ascii	"rx_int_Amulet_Start\000"
+ 1430      6E745F41 
+ 1430      6D756C65 
+ 1430      745F5374 
+ 1430      61727400 
+ 1431              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"

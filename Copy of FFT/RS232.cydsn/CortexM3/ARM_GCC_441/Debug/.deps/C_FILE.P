@@ -1,0 +1,130 @@
+E:/6.115/FFT/RS232.cydsn/CortexM3/ARM_GCC_441/Debug/main.o : C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/_ansi.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/assert.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/ctype.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/getopt.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/limits.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/_default_types.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/_types.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/fastmath.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/ieeefp.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/types.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/math.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/newlib.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/stdint.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/string.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/_types.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/config.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/custom_file.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/features.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/lock.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/reent.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/sched.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/string.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/time.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/types.h C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/unistd.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_In.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_In_aliases.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass_aliases.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_theACLK.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_1.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_2.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_ISR.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyDmac.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyFlash.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyLib.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CySpc.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/FFT_ISR.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD_LCDPort.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD_LCDPort_aliases.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/PGA_1.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/TX.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/TX_aliases.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/UART.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/VDAC8_1.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/core_cm3.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyPm.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cydevice.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cydevice_trm.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyfitter.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cypins.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cytypes.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/project.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/rx_int.h E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/tx_int.h E:/6.115/FFT/RS232.cydsn/clock.h E:/6.115/FFT/RS232.cydsn/device.h E:/6.115/FFT/RS232.cydsn/fft.h E:/6.115/FFT/RS232.cydsn/main.c E:/6.115/FFT/RS232.cydsn/state.h 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/_ansi.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/assert.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/ctype.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/getopt.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/limits.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/_default_types.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/_types.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/fastmath.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/ieeefp.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/machine/types.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/math.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/newlib.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/stdint.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/string.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/_types.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/config.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/custom_file.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/features.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/lock.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/reent.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/sched.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/string.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/time.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/types.h : 
+
+C:/Program\ Files/Cypress/PSoC\ Creator/2.1/PSoC\ Creator/import/gnu_cs/arm/4.4.1/arm-none-eabi/include/sys/unistd.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_In.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_In_aliases.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass_aliases.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/ADC_SAR_1_theACLK.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_1.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_2.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/Clock_ISR.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/FFT_ISR.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD_LCDPort.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/LCD_LCDPort_aliases.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/PGA_1.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/TX.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/TX_aliases.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/UART.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/VDAC8_1.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/project.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/rx_int.h : 
+
+E:/6.115/FFT/RS232.cydsn/Generated_Source/PSoC5/tx_int.h : 
+
+E:/6.115/FFT/RS232.cydsn/clock.h : 
+
+E:/6.115/FFT/RS232.cydsn/device.h : 
+
+E:/6.115/FFT/RS232.cydsn/fft.h : 
+
+E:/6.115/FFT/RS232.cydsn/main.c : 
+
+E:/6.115/FFT/RS232.cydsn/state.h : 
+
